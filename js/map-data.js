@@ -1,361 +1,251 @@
-// FMV Ispartakule Işık Okulları - Konum Verileri
-// Kaynak: Okul tahliye planları + FMV resmi bilgileri
-// 3 katlı bina + bodrum kat, 21.000 m² kapalı alan
+// FMV Ispartakule Işık Okulları - Kampüs Verileri
+// 3 katlı + bodrum | 21.000 m² | 4 okul birimi
+// Anaokulu, İlkokul-Ortaokul, Lise, Fen Lisesi
 
 const LOCATIONS = [
-  // =================== YONETIM (Zemin Kat) ===================
-  {
-    id: 'mudur', name: 'Müdür Odası', category: 'yonetim', floor: 0,
-    color: '#1a3a6b', icon: '👤',
-    x: 130, y: 95, w: 100, h: 55,
-    description: 'Okul Müdürü makam odası. Ziyaretçi ve veli görüşmeleri randevu ile yapılır.',
-    directions: [
-      'Ana girişten binaya girin',
-      'Resepsiyonda sola dönün',
-      'Yönetim koridorunda düz ilerleyin',
-      'İlk kapı sol tarafta — Müdür Odası'
-    ],
-    info: 'Çalışma Saatleri: 08:30 - 17:00'
-  },
-  {
-    id: 'mudur_yrd_1', name: 'Müdür Yardımcısı 1', category: 'yonetim', floor: 0,
-    color: '#1a3a6b', icon: '👥',
-    x: 130, y: 158, w: 100, h: 50,
-    description: 'Müdür Yardımcısı — Öğrenci işleri, devamsızlık ve disiplin konuları.',
-    directions: [
-      'Ana girişten binaya girin',
-      'Resepsiyonda sola dönün',
-      'Müdür odasını geçin',
-      'Hemen yanındaki kapı — Müdür Yardımcısı 1'
-    ],
-    info: 'Çalışma Saatleri: 08:00 - 17:00'
-  },
-  {
-    id: 'mudur_yrd_2', name: 'Müdür Yardımcısı 2', category: 'yonetim', floor: 0,
-    color: '#1a3a6b', icon: '👥',
-    x: 130, y: 216, w: 100, h: 50,
-    description: 'Müdür Yardımcısı — Eğitim-öğretim koordinasyonu ve ders programları.',
-    directions: [
-      'Ana girişten binaya girin',
-      'Resepsiyonda sola dönün',
-      'Yönetim koridorunda ilerleyin',
-      'Üçüncü kapı — Müdür Yardımcısı 2'
-    ],
-    info: 'Çalışma Saatleri: 08:00 - 17:00'
-  },
-  {
-    id: 'rehberlik', name: 'Rehberlik Servisi', category: 'yonetim', floor: 0,
-    color: '#1a3a6b', icon: '🎯',
-    x: 130, y: 274, w: 100, h: 50,
-    description: 'Psikolojik danışmanlık ve rehberlik. Öğrenci ve veli görüşmeleri yapılır.',
-    directions: [
-      'Ana girişten binaya girin',
-      'Resepsiyonda sola dönün',
-      'Yönetim koridorunun sonuna kadar ilerleyin',
-      'Son kapı — Rehberlik Servisi'
-    ],
-    info: 'Randevu ile görüşme: 08:30 - 16:30'
-  },
-  {
-    id: 'idari_ofis', name: 'İdari İşler / Sekreterlik', category: 'yonetim', floor: 0,
-    color: '#1a3a6b', icon: '📋',
-    x: 130, y: 340, w: 100, h: 50,
-    description: 'Okul sekreterliği. Belge, kayıt ve resmi işlemler.',
-    directions: [
-      'Ana girişten binaya girin',
-      'Resepsiyonun hemen sağında İdari İşler ofisi',
-      'Kapıda "Sekreterlik" yazısı bulunur'
-    ],
-    info: 'Hafta içi 08:30 - 17:00'
-  },
+  // ========== YONETIM ==========
+  { id:'mudur', name:'Okul Müdürü', category:'yonetim', floor:0, color:'#1a3a6b', icon:'👤',
+    rx:82, ry:155, rw:96, rh:42,
+    description:'Okul Müdürü makam odası. Veli ve ziyaretçi görüşmeleri randevu ile yapılır.',
+    directions:['Lise Girişinden binaya girin','Resepsiyondan sola dönün','Yönetim koridorunda ilerleyin','İlk kapı — Müdür Odası'],
+    info:'08:30 – 17:00 | Randevu gereklidir' },
+  { id:'mudur_yrd_1', name:'Müdür Yardımcısı 1', category:'yonetim', floor:0, color:'#1a3a6b', icon:'👥',
+    rx:82, ry:202, rw:96, rh:38,
+    description:'Müdür Yardımcısı — Öğrenci işleri, devamsızlık takibi ve disiplin.',
+    directions:['Lise Girişinden girin','Sola dönün — Yönetim koridoru','Müdür odasını geçin','Yanındaki kapı — Müdür Yrd. 1'],
+    info:'08:00 – 17:00' },
+  { id:'mudur_yrd_2', name:'Müdür Yardımcısı 2', category:'yonetim', floor:0, color:'#1a3a6b', icon:'👥',
+    rx:82, ry:245, rw:96, rh:38,
+    description:'Müdür Yardımcısı — Eğitim-öğretim koordinasyonu, ders programları.',
+    directions:['Lise Girişinden girin','Sola dönün','Yönetim koridorunda üçüncü kapı — Müdür Yrd. 2'],
+    info:'08:00 – 17:00' },
+  { id:'rehberlik', name:'Rehberlik Servisi', category:'yonetim', floor:0, color:'#1a3a6b', icon:'🧭',
+    rx:82, ry:288, rw:96, rh:38,
+    description:'Psikolojik danışmanlık ve rehberlik. Öğrenci-veli görüşmeleri.',
+    directions:['Lise Girişinden girin','Sola dönün','Koridorun sonuna ilerleyin','Son kapı — Rehberlik Servisi'],
+    info:'08:30 – 16:30 | Randevu ile' },
+  { id:'idari', name:'İdari İşler / Sekreterlik', category:'yonetim', floor:0, color:'#1a3a6b', icon:'📋',
+    rx:82, ry:105, rw:96, rh:42,
+    description:'Belge, kayıt, resmi işlemler ve okul sekreterliği.',
+    directions:['Lise Girişinden girin','Resepsiyonun hemen solunda — İdari İşler'],
+    info:'08:30 – 17:00' },
 
-  // =================== OGRETMEN ===================
-  {
-    id: 'ogretmenler_odasi', name: 'Öğretmenler Odası', category: 'ogretmen', floor: 1,
-    color: '#2e7d32', icon: '📚',
-    x: 130, y: 95, w: 140, h: 70,
-    description: 'Öğretmenler odası. Teneffüs saatlerinde öğretmenlerle görüşme yapılabilir.',
-    directions: [
-      'Ana girişten binaya girin',
-      'Ana merdivenden 1. kata çıkın',
-      'Merdiven çıkışında sola dönün',
-      'Koridorda ilerleyin — sol tarafta geniş kapılı Öğretmenler Odası'
-    ],
-    info: 'Teneffüs saatlerinde ziyaret edilebilir'
-  },
-  {
-    id: 'ogretmen_calisma', name: 'Öğretmen Çalışma Odası', category: 'ogretmen', floor: 1,
-    color: '#2e7d32', icon: '✏️',
-    x: 130, y: 173, w: 140, h: 50,
-    description: 'Öğretmenlerin ders hazırlığı yaptığı çalışma alanı.',
-    directions: [
-      'Ana merdivenden 1. kata çıkın',
-      'Sola dönün',
-      'Öğretmenler Odasını geçin',
-      'Hemen yanındaki oda — Öğretmen Çalışma Odası'
-    ],
-    info: 'Sessiz çalışma alanı'
-  },
+  // ========== GIRISLER ==========
+  { id:'giris_lise', name:'Lise Girişi (Ana)', category:'ortak', floor:0, color:'#2e7d32', icon:'🚪',
+    rx:310, ry:420, rw:100, rh:24,
+    description:'Lise ve Fen Lisesi ana giriş kapısı. Kiosk burada konumludur.',
+    directions:['Ana yoldan kampüse gelin','Binanın ön cephesindeki büyük kapı — Lise Girişi'],
+    info:'Ana giriş — Güvenlik kontrolü' },
+  { id:'giris_ortaokul', name:'Ortaokul Girişi', category:'ortak', floor:0, color:'#1565c0', icon:'🚪',
+    rx:560, ry:420, rw:100, rh:24,
+    description:'Ortaokul öğrencileri için ayrı giriş kapısı.',
+    directions:['Kampüs bahçesinden binanın sağ tarafına ilerleyin','Ortaokul tabelasını takip edin'],
+    info:'Ortaokul öğrenci girişi' },
+  { id:'giris_ilkokul', name:'İlkokul Girişi', category:'ortak', floor:0, color:'#00838f', icon:'🚪',
+    rx:710, ry:330, rw:24, rh:80,
+    description:'İlkokul öğrencileri için yan giriş.',
+    directions:['Kampüsün sağ tarafından ilerleyin','İlkokul bloğunun girişi sağ cephededir'],
+    info:'İlkokul öğrenci girişi' },
+  { id:'giris_anaokulu', name:'Anaokulu Girişi', category:'ortak', floor:0, color:'#ad1457', icon:'🚪',
+    rx:710, ry:105, rw:24, rh:70,
+    description:'Anaokulu için özel ayrı giriş. Veli bırakma/alma noktası.',
+    directions:['Kampüsün sağ üst köşesindeki ayrı giriş','Anaokulu tabelasını takip edin'],
+    info:'Veli bırakma/alma noktası' },
 
-  // =================== TUVALETLER ===================
-  {
-    id: 'tuvalet_erkek_zemin', name: 'Erkek Tuvalet (Zemin)', category: 'tuvalet', floor: 0,
-    color: '#0288d1', icon: '🚹',
-    x: 130, y: 430, w: 80, h: 45,
-    description: 'Zemin kat erkek tuvaleti.',
-    directions: [
-      'Ana girişten binaya girin',
-      'Sol koridora dönün',
-      'Koridorun sonunda merdiven yanında — Erkek WC'
-    ],
-    info: 'Zemin Kat — Sol Koridor Sonu'
-  },
-  {
-    id: 'tuvalet_kiz_zemin', name: 'Kız Tuvalet (Zemin)', category: 'tuvalet', floor: 0,
-    color: '#e91e63', icon: '🚺',
-    x: 220, y: 430, w: 80, h: 45,
-    description: 'Zemin kat kız tuvaleti.',
-    directions: [
-      'Ana girişten binaya girin',
-      'Sol koridora dönün',
-      'Erkek tualetin hemen yanında — Kız WC'
-    ],
-    info: 'Zemin Kat — Sol Koridor Sonu'
-  },
-  {
-    id: 'tuvalet_erkek_1', name: 'Erkek Tuvalet (1. Kat)', category: 'tuvalet', floor: 1,
-    color: '#0288d1', icon: '🚹',
-    x: 130, y: 430, w: 80, h: 45,
-    description: '1. kat erkek tuvaleti.',
-    directions: [
-      'Merdivenden 1. kata çıkın',
-      'Sol koridorun sonuna ilerleyin',
-      'Merdiven yanında — Erkek WC'
-    ],
-    info: '1. Kat — Sol Koridor Sonu'
-  },
-  {
-    id: 'tuvalet_kiz_1', name: 'Kız Tuvalet (1. Kat)', category: 'tuvalet', floor: 1,
-    color: '#e91e63', icon: '🚺',
-    x: 220, y: 430, w: 80, h: 45,
-    description: '1. kat kız tuvaleti.',
-    directions: [
-      'Merdivenden 1. kata çıkın',
-      'Sol koridorun sonuna ilerleyin',
-      'Erkek tualetin yanında — Kız WC'
-    ],
-    info: '1. Kat — Sol Koridor Sonu'
-  },
-  {
-    id: 'tuvalet_erkek_2', name: 'Erkek Tuvalet (2. Kat)', category: 'tuvalet', floor: 2,
-    color: '#0288d1', icon: '🚹',
-    x: 130, y: 430, w: 80, h: 45,
-    description: '2. kat erkek tuvaleti.',
-    directions: ['Merdivenden 2. kata çıkın', 'Sol koridorun sonuna ilerleyin', 'Merdiven yanında — Erkek WC'],
-    info: '2. Kat — Sol Koridor Sonu'
-  },
-  {
-    id: 'tuvalet_kiz_2', name: 'Kız Tuvalet (2. Kat)', category: 'tuvalet', floor: 2,
-    color: '#e91e63', icon: '🚺',
-    x: 220, y: 430, w: 80, h: 45,
-    description: '2. kat kız tuvaleti.',
-    directions: ['Merdivenden 2. kata çıkın', 'Sol koridorun sonuna ilerleyin', 'Erkek tualetin yanında — Kız WC'],
-    info: '2. Kat — Sol Koridor Sonu'
-  },
-  {
-    id: 'tuvalet_bodrum', name: 'Tuvalet (Bodrum)', category: 'tuvalet', floor: -1,
-    color: '#0288d1', icon: '🚻',
-    x: 130, y: 410, w: 100, h: 45,
-    description: 'Bodrum kat tuvaletleri.',
-    directions: ['Merdivenden bodrum kata inin', 'Sağ koridorun sonunda — Tuvaletler'],
-    info: 'Bodrum Kat'
-  },
+  // ========== OGRETMEN ==========
+  { id:'ogretmenler_odasi', name:'Öğretmenler Odası', category:'ogretmen', floor:1, color:'#2e7d32', icon:'📚',
+    rx:82, ry:105, rw:130, rh:55,
+    description:'Ana öğretmenler odası. Teneffüslerde öğretmenlerle görüşme yapılabilir.',
+    directions:['Lise Girişinden girin','Ana merdivenden 1. kata çıkın','Sola dönün — büyük kapılı Öğretmenler Odası'],
+    info:'Teneffüslerde ziyaret edilebilir' },
+  { id:'ogretmen_calisma', name:'Öğretmen Çalışma Odası', category:'ogretmen', floor:1, color:'#2e7d32', icon:'✏️',
+    rx:82, ry:168, rw:130, rh:42,
+    description:'Öğretmenlerin ders hazırlığı yaptığı sessiz çalışma alanı.',
+    directions:['1. kata çıkın','Sola dönün','Öğretmenler Odasını geçin — hemen yanında'],
+    info:'Sessiz çalışma alanı' },
 
-  // =================== ORTAK ALANLAR ===================
-  {
-    id: 'kantin', name: 'Kantin / Yemekhane', category: 'ortak', floor: 0,
-    color: '#f57c00', icon: '🍽️',
-    x: 560, y: 95, w: 150, h: 80,
-    description: 'Okul kantini ve yemekhane. Sıcak yemek, sandviç ve içecek servisi.',
-    directions: [
-      'Ana girişten binaya girin',
-      'Ana koridorda sağa doğru ilerleyin',
-      'Koridorun sağ tarafında büyük kapılı Kantin alanı'
-    ],
-    info: 'Öğle: 12:00-13:00 | Kantin: 08:00-16:00'
-  },
-  {
-    id: 'kutuphane', name: 'Kütüphane', category: 'ortak', floor: 1,
-    color: '#f57c00', icon: '📖',
-    x: 560, y: 95, w: 150, h: 80,
-    description: 'Okul kütüphanesi. Ders çalışma, araştırma ve kitap okuma alanı. Sessiz çalışma bölümü mevcuttur.',
-    directions: [
-      'Merdivenden 1. kata çıkın',
-      'Sağ koridora dönün',
-      'Koridorda ilerleyin',
-      'Sağ tarafta cam kapılı Kütüphane'
-    ],
-    info: '08:30 - 16:30 arası açık'
-  },
-  {
-    id: 'amfiteatr', name: 'Amfiteatr / Konferans', category: 'ortak', floor: -1,
-    color: '#f57c00', icon: '🎭',
-    x: 130, y: 95, w: 200, h: 130,
-    description: 'Konferans salonu ve amfitiyatro. Tören, seminer, tiyatro ve sunum etkinlikleri.',
-    directions: [
-      'Ana girişten binaya girin',
-      'Ana merdivenden bodrum kata inin',
-      'Merdiven çıkışında sola dönün',
-      'Geniş kapılı Amfiteatr girişi karşınızda'
-    ],
-    info: 'Kapasite: ~250 kişi'
-  },
-  {
-    id: 'spor_salonu', name: 'Spor Salonu', category: 'ortak', floor: -1,
-    color: '#f57c00', icon: '🏀',
-    x: 450, y: 95, w: 180, h: 120,
-    description: 'Kapalı spor salonu. Basketbol, voleybol, badminton ve beden eğitimi dersleri.',
-    directions: [
-      'Ana merdivenden bodrum kata inin',
-      'Sağ koridora dönün',
-      'Koridorda düz ilerleyin',
-      'Büyük çift kapılı alan — Spor Salonu'
-    ],
-    info: 'Beden eğitimi dersleri ve kulüp etkinlikleri'
-  },
-  {
-    id: 'yuzme_havuzu', name: 'Yüzme Havuzu', category: 'ortak', floor: -1,
-    color: '#0097a7', icon: '🏊',
-    x: 650, y: 95, w: 160, h: 120,
-    description: 'Yarı olimpik yüzme havuzu. Yüzme dersleri ve antrenmanlar.',
-    directions: [
-      'Ana merdivenden bodrum kata inin',
-      'Sağ koridora dönün',
-      'Spor salonunu geçin',
-      'Koridorun sonunda — Yüzme Havuzu'
-    ],
-    info: 'Yüzme dersleri ve antrenmanlar'
-  },
-  {
-    id: 'teneffushane', name: 'Teneffüshane', category: 'ortak', floor: 0,
-    color: '#43a047', icon: '☀️',
-    x: 760, y: 95, w: 130, h: 310,
-    description: 'Açık hava dinlenme ve teneffüs alanı. Bahçe ve oturma grupları mevcuttur.',
-    directions: [
-      'Ana koridorda en sağa ilerleyin',
-      'Koridorun sonundaki cam kapıdan dışarı çıkın',
-      'Teneffüshane açık alandadır'
-    ],
-    info: 'Teneffüs saatlerinde kullanılabilir'
-  },
-  {
-    id: 'atolye', name: 'Atölye / Sanat Odası', category: 'ortak', floor: -1,
-    color: '#f57c00', icon: '🎨',
-    x: 350, y: 95, w: 90, h: 80,
-    description: 'Görsel sanatlar atölyesi. Resim, seramik ve tasarım çalışmaları.',
-    directions: [
-      'Merdivenden bodrum kata inin',
-      'Sola dönün, amfiteatrı geçin',
-      'Sağ tarafta Atölye'
-    ],
-    info: 'Sanat ve tasarım dersleri'
-  },
+  // ========== TUVALETLER ==========
+  { id:'wc_erkek_z', name:'Erkek WC (Zemin)', category:'tuvalet', floor:0, color:'#0277bd', icon:'🚹',
+    rx:82, ry:370, rw:60, rh:35,
+    description:'Zemin kat erkek tuvaleti ve lavabo.',
+    directions:['Lise Girişinden girin','Sol koridorun sonuna ilerleyin','Merdiven yanında — Erkek WC'],
+    info:'Zemin Kat — Sol Koridor' },
+  { id:'wc_kiz_z', name:'Kız WC (Zemin)', category:'tuvalet', floor:0, color:'#c2185b', icon:'🚺',
+    rx:148, ry:370, rw:60, rh:35,
+    description:'Zemin kat kız tuvaleti ve lavabo.',
+    directions:['Lise Girişinden girin','Sol koridorun sonuna ilerleyin','Erkek WC yanında — Kız WC'],
+    info:'Zemin Kat — Sol Koridor' },
+  { id:'wc_erkek_1', name:'Erkek WC (1. Kat)', category:'tuvalet', floor:1, color:'#0277bd', icon:'🚹',
+    rx:82, ry:370, rw:60, rh:35,
+    description:'1. kat erkek tuvaleti ve lavabo.',
+    directions:['1. kata çıkın','Sol koridorun sonunda — Erkek WC'],
+    info:'1. Kat' },
+  { id:'wc_kiz_1', name:'Kız WC (1. Kat)', category:'tuvalet', floor:1, color:'#c2185b', icon:'🚺',
+    rx:148, ry:370, rw:60, rh:35,
+    description:'1. kat kız tuvaleti ve lavabo.',
+    directions:['1. kata çıkın','Sol koridorun sonunda Erkek WC yanı — Kız WC'],
+    info:'1. Kat' },
+  { id:'wc_erkek_2', name:'Erkek WC (2. Kat)', category:'tuvalet', floor:2, color:'#0277bd', icon:'🚹',
+    rx:82, ry:370, rw:60, rh:35,
+    description:'2. kat erkek tuvaleti ve lavabo.',
+    directions:['2. kata çıkın','Sol koridorun sonunda — Erkek WC'],
+    info:'2. Kat' },
+  { id:'wc_kiz_2', name:'Kız WC (2. Kat)', category:'tuvalet', floor:2, color:'#c2185b', icon:'🚺',
+    rx:148, ry:370, rw:60, rh:35,
+    description:'2. kat kız tuvaleti ve lavabo.',
+    directions:['2. kata çıkın','Sol koridorun sonunda — Kız WC'],
+    info:'2. Kat' },
+  { id:'wc_bodrum', name:'WC (Bodrum)', category:'tuvalet', floor:-1, color:'#0277bd', icon:'🚻',
+    rx:82, ry:370, rw:80, rh:35,
+    description:'Bodrum kat tuvaletleri.',
+    directions:['Merdivenden bodrum kata inin','Koridorun sol sonunda — WC'],
+    info:'Bodrum Kat' },
 
-  // =================== DERSLIKLER - 1. KAT ===================
-  {
-    id: 'derslik_156', name: 'Derslik 156', category: 'derslik', floor: 1,
-    color: '#7b1fa2', icon: '📝',
-    x: 290, y: 95, w: 80, h: 55,
-    description: 'Fen Lisesi dersliği.',
-    directions: ['1. kata çıkın', 'Sol koridorda ilerleyin', 'Öğrt. Odasını geçin — sağda Derslik 156'],
-    info: 'Fen Lisesi'
-  },
-  {
-    id: 'derslik_158', name: 'Derslik 158', category: 'derslik', floor: 1,
-    color: '#7b1fa2', icon: '📝',
-    x: 380, y: 95, w: 80, h: 55,
-    description: 'Fen Lisesi dersliği.',
-    directions: ['1. kata çıkın', 'Sol koridorda ilerleyin', '156\'yı geçin — Derslik 158'],
-    info: 'Fen Lisesi'
-  },
-  {
-    id: 'derslik_162', name: 'Derslik 162', category: 'derslik', floor: 1,
-    color: '#7b1fa2', icon: '📝',
-    x: 560, y: 350, w: 80, h: 55,
-    description: 'Lise dersliği.',
-    directions: ['1. kata çıkın', 'Sağ koridora dönün', 'Koridorda ilerleyin — sağda Derslik 162'],
-    info: 'Lise Dersliği'
-  },
-  {
-    id: 'derslik_174', name: 'Derslik 174', category: 'derslik', floor: 1,
-    color: '#7b1fa2', icon: '📝',
-    x: 650, y: 350, w: 80, h: 55,
-    description: 'Lise dersliği.',
-    directions: ['1. kata çıkın', 'Sağ koridora dönün', '162\'yi geçin — Derslik 174'],
-    info: 'Lise Dersliği'
-  },
+  // ========== ORTAK ALANLAR ==========
+  { id:'kantin', name:'Yemekhane / Kantin', category:'ortak', floor:0, color:'#e65100', icon:'🍽️',
+    rx:440, ry:105, rw:140, rh:65,
+    description:'Okul yemekhane ve kantini. Sıcak yemek, sandviç, içecek servisi.',
+    directions:['Lise Girişinden girin','Ana koridorda sağa ilerleyin','Geniş kapılı Yemekhane alanı'],
+    info:'Öğle: 12:00–13:00 | Kantin: 08:00–16:00' },
+  { id:'kutuphane', name:'Kütüphane', category:'ortak', floor:1, color:'#e65100', icon:'📖',
+    rx:440, ry:105, rw:140, rh:65,
+    description:'Okul kütüphanesi. Ders çalışma, araştırma, kitap okuma alanı. Sessiz bölüm mevcuttur.',
+    directions:['1. kata çıkın','Sağ koridora dönün','Cam kapılı Kütüphane'],
+    info:'08:30 – 16:30' },
+  { id:'amfiteatr', name:'Konferans / Amfiteatr', category:'ortak', floor:-1, color:'#e65100', icon:'🎭',
+    rx:82, ry:105, rw:190, rh:110,
+    description:'Konferans salonu ve amfitiyatro. Tören, seminer, tiyatro, sunum etkinlikleri.',
+    directions:['Ana merdivenden bodrum kata inin','Sola dönün','Geniş kapılı Amfiteatr karşınızda'],
+    info:'Kapasite: ~250 kişi' },
+  { id:'spor', name:'Spor Salonu', category:'ortak', floor:-1, color:'#e65100', icon:'🏀',
+    rx:340, ry:105, rw:160, rh:100,
+    description:'Kapalı spor salonu. Basketbol, voleybol, beden eğitimi.',
+    directions:['Bodrum kata inin','Sağ koridorda ilerleyin','Çift kapılı Spor Salonu'],
+    info:'Beden eğitimi & kulüp etkinlikleri' },
+  { id:'havuz', name:'Yüzme Havuzu', category:'ortak', floor:-1, color:'#00838f', icon:'🏊',
+    rx:540, ry:105, rw:140, rh:100,
+    description:'Yarı olimpik kapalı yüzme havuzu.',
+    directions:['Bodrum kata inin','Spor salonunu geçin','Koridorun sonunda — Yüzme Havuzu'],
+    info:'Yüzme dersleri ve antrenmanlar' },
+  { id:'teneffushane', name:'Teneffüshane / Bahçe', category:'ortak', floor:0, color:'#388e3c', icon:'🌳',
+    rx:600, ry:200, rw:130, rh:200,
+    description:'Açık hava dinlenme ve teneffüs alanı. Oturma grupları, oyun alanı.',
+    directions:['Ana koridordan sağa en sona ilerleyin','Cam kapıdan dışarı çıkın'],
+    info:'Teneffüs saatlerinde' },
+  { id:'atolye', name:'Sanat / Seramik Atölyesi', category:'ortak', floor:-1, color:'#e65100', icon:'🎨',
+    rx:280, ry:105, rw:55, rh:70,
+    description:'Görsel sanatlar ve seramik atölyesi.',
+    directions:['Bodrum kata inin','Amfiteatrın sağında — Atölye'],
+    info:'Sanat ve seramik dersleri' },
+  { id:'muzik', name:'Müzik Sınıfı', category:'ortak', floor:-1, color:'#e65100', icon:'🎵',
+    rx:280, ry:180, rw:55, rh:50,
+    description:'Müzik dersliği. Enstrüman ve koro çalışmaları.',
+    directions:['Bodrum kata inin','Atölyenin altında — Müzik Sınıfı'],
+    info:'Müzik dersleri ve koro' },
+  { id:'resepsiyon', name:'Resepsiyon / Güvenlik', category:'ortak', floor:0, color:'#37474f', icon:'🛡️',
+    rx:280, ry:380, rw:110, rh:35,
+    description:'Ana giriş resepsiyonu ve güvenlik noktası.',
+    directions:['Lise Girişinden girin','Karşınızda — Resepsiyon'],
+    info:'7/24 Güvenlik' },
 
-  // =================== DERSLIKLER - 2. KAT ===================
-  {
-    id: 'fen_lab', name: 'Fen Laboratuvarı', category: 'derslik', floor: 2,
-    color: '#7b1fa2', icon: '🔬',
-    x: 130, y: 95, w: 140, h: 65,
-    description: 'Fizik, Kimya ve Biyoloji deneyleri için tam donanımlı laboratuvar.',
-    directions: ['Merdivenden 2. kata çıkın', 'Sola dönün', 'İlk kapı — Fen Laboratuvarı'],
-    info: 'Deney malzemeleri mevcuttur'
-  },
-  {
-    id: 'kimya_lab', name: 'Kimya Laboratuvarı', category: 'derslik', floor: 2,
-    color: '#7b1fa2', icon: '⚗️',
-    x: 280, y: 95, w: 120, h: 65,
-    description: 'Kimya deneyleri için özel donanımlı laboratuvar.',
-    directions: ['2. kata çıkın', 'Sola dönün', 'Fen Lab\'ı geçin — Kimya Laboratuvarı'],
-    info: 'Davlumbaz ve güvenlik ekipmanı mevcut'
-  },
-  {
-    id: 'bilgisayar_lab', name: 'Bilgisayar Lab.', category: 'derslik', floor: 2,
-    color: '#7b1fa2', icon: '💻',
-    x: 560, y: 95, w: 140, h: 65,
-    description: 'Bilişim teknolojileri ve kodlama dersliği. 30 bilgisayar mevcuttur.',
-    directions: ['2. kata çıkın', 'Sağ koridora dönün', 'Koridorda ilerleyin — Bilgisayar Lab.'],
-    info: '30 adet bilgisayar'
-  },
-  {
-    id: 'derslik_201', name: 'Derslik 201', category: 'derslik', floor: 2,
-    color: '#7b1fa2', icon: '📝',
-    x: 130, y: 350, w: 80, h: 55,
-    description: '2. kat dersliği.',
-    directions: ['2. kata çıkın', 'Sol koridorda sonuna ilerleyin', 'Sol tarafta Derslik 201'],
-    info: 'Fen Lisesi'
-  },
-  {
-    id: 'derslik_205', name: 'Derslik 205', category: 'derslik', floor: 2,
-    color: '#7b1fa2', icon: '📝',
-    x: 220, y: 350, w: 80, h: 55,
-    description: '2. kat dersliği.',
-    directions: ['2. kata çıkın', 'Sol koridorda ilerleyin', '201\'i geçin — Derslik 205'],
-    info: 'Fen Lisesi'
-  },
-  {
-    id: 'derslik_210', name: 'Derslik 210', category: 'derslik', floor: 2,
-    color: '#7b1fa2', icon: '📝',
-    x: 560, y: 350, w: 80, h: 55,
-    description: '2. kat dersliği.',
-    directions: ['2. kata çıkın', 'Sağ koridora dönün', 'Derslik 210 sağ tarafta'],
-    info: 'Lise Dersliği'
-  }
+  // ========== ANAOKULU BLOĞU ==========
+  { id:'anaokulu_sinif', name:'Anaokulu Sınıfları', category:'derslik', floor:0, color:'#ad1457', icon:'🧒',
+    rx:620, ry:105, rw:80, rh:90,
+    description:'Anaokulu oyun ve eğitim sınıfları. Yaşa uygun oyun alanları.',
+    directions:['Anaokulu Girişinden girin','Anaokulu bloğu sağ kanatta'],
+    info:'Anaokulu bloğu' },
+
+  // ========== İLKOKUL BLOĞU ==========
+  { id:'ilkokul_siniflar', name:'İlkokul Sınıfları', category:'derslik', floor:0, color:'#00838f', icon:'📝',
+    rx:620, ry:250, rw:80, rh:70,
+    description:'İlkokul derslik bloğu. Teknoloji donanımlı sınıflar.',
+    directions:['İlkokul Girişinden girin','İlkokul bloğu sağ kanatta'],
+    info:'İlkokul bloğu' },
+
+  // ========== DERSLIKLER — 1. KAT ==========
+  { id:'d_156', name:'Sınıf 156', category:'derslik', floor:1, color:'#6a1b9a', icon:'📝',
+    rx:230, ry:105, rw:70, rh:42,
+    description:'Fen Lisesi dersliği.',
+    directions:['1. kata çıkın','Sola dönün','Koridorda ilerleyin — Sınıf 156'],
+    info:'Fen Lisesi' },
+  { id:'d_158', name:'Sınıf 158', category:'derslik', floor:1, color:'#6a1b9a', icon:'📝',
+    rx:310, ry:105, rw:70, rh:42,
+    description:'Fen Lisesi dersliği.',
+    directions:['1. kata çıkın','Sola dönün','156 yanında — Sınıf 158'],
+    info:'Fen Lisesi' },
+  { id:'d_160', name:'Sınıf 160', category:'derslik', floor:1, color:'#6a1b9a', icon:'📝',
+    rx:390, ry:105, rw:70, rh:42,
+    description:'Lise dersliği.',
+    directions:['1. kata çıkın','Sağa dönün — Sınıf 160'],
+    info:'Lise' },
+  { id:'ingilizce', name:'İngilizce Hikâye Odası', category:'derslik', floor:1, color:'#283593', icon:'📕',
+    rx:230, ry:330, rw:100, rh:42,
+    description:'İngilizce hikâye anlatımı ve okuma odası.',
+    directions:['1. kata çıkın','Sol koridorun alt kısmında — İngilizce Hikâye Odası'],
+    info:'Dil eğitimi' },
+  { id:'dil_sinifi', name:'Dil Sınıfı (DE/FR/ES)', category:'derslik', floor:1, color:'#283593', icon:'🌍',
+    rx:340, ry:330, rw:100, rh:42,
+    description:'Almanca, Fransızca ve İspanyolca dil eğitimi sınıfı.',
+    directions:['1. kata çıkın','Alt koridorda — Dil Sınıfı'],
+    info:'Yabancı dil dersleri' },
+  { id:'d_162', name:'Sınıf 162', category:'derslik', floor:1, color:'#6a1b9a', icon:'📝',
+    rx:470, ry:330, rw:70, rh:42,
+    description:'Lise dersliği.',
+    directions:['1. kata çıkın','Sağ alt koridorda — Sınıf 162'],
+    info:'Lise' },
+  { id:'d_174', name:'Sınıf 174', category:'derslik', floor:1, color:'#6a1b9a', icon:'📝',
+    rx:550, ry:330, rw:70, rh:42,
+    description:'Lise dersliği.',
+    directions:['1. kata çıkın','162 yanında — Sınıf 174'],
+    info:'Lise' },
+
+  // ========== LABORATUVARLAR — 2. KAT ==========
+  { id:'fen_lab', name:'Fen Laboratuvarı', category:'derslik', floor:2, color:'#6a1b9a', icon:'🔬',
+    rx:82, ry:105, rw:120, rh:55,
+    description:'Fizik, Kimya, Biyoloji deneyleri için tam donanımlı laboratuvar.',
+    directions:['2. kata çıkın','Sola dönün — ilk kapı Fen Lab'],
+    info:'Deney malzemeleri mevcut' },
+  { id:'kimya_lab', name:'Kimya Laboratuvarı', category:'derslik', floor:2, color:'#6a1b9a', icon:'⚗️',
+    rx:210, ry:105, rw:110, rh:55,
+    description:'Kimya deneyleri için özel donanımlı lab. Davlumbaz ve güvenlik ekipmanı.',
+    directions:['2. kata çıkın','Fen Lab yanında — Kimya Lab'],
+    info:'Güvenlik ekipmanı mevcut' },
+  { id:'bio_lab', name:'Biyoloji Laboratuvarı', category:'derslik', floor:2, color:'#6a1b9a', icon:'🧬',
+    rx:330, ry:105, rw:110, rh:55,
+    description:'Biyoloji deneyleri ve mikroskop çalışmaları.',
+    directions:['2. kata çıkın','Kimya Lab yanında — Biyoloji Lab'],
+    info:'Mikroskop seti mevcut' },
+  { id:'bilgisayar_lab', name:'Bilgisayar Lab.', category:'derslik', floor:2, color:'#6a1b9a', icon:'💻',
+    rx:460, ry:105, rw:120, rh:55,
+    description:'Bilişim teknolojileri ve kodlama dersliği. 30 bilgisayar.',
+    directions:['2. kata çıkın','Sağ koridorda — Bilgisayar Lab'],
+    info:'30 bilgisayar' },
+  { id:'d_201', name:'Sınıf 201', category:'derslik', floor:2, color:'#6a1b9a', icon:'📝',
+    rx:82, ry:330, rw:80, rh:42,
+    description:'2. kat dersliği.',
+    directions:['2. kata çıkın','Sol alt koridorda — Sınıf 201'],
+    info:'Fen Lisesi' },
+  { id:'d_205', name:'Sınıf 205', category:'derslik', floor:2, color:'#6a1b9a', icon:'📝',
+    rx:170, ry:330, rw:80, rh:42,
+    description:'2. kat dersliği.',
+    directions:['2. kata çıkın','201 yanında — Sınıf 205'],
+    info:'Fen Lisesi' },
+  { id:'d_210', name:'Sınıf 210', category:'derslik', floor:2, color:'#6a1b9a', icon:'📝',
+    rx:460, ry:330, rw:80, rh:42,
+    description:'2. kat dersliği.',
+    directions:['2. kata çıkın','Sağ alt koridorda — Sınıf 210'],
+    info:'Lise' },
+  { id:'d_215', name:'Sınıf 215', category:'derslik', floor:2, color:'#6a1b9a', icon:'📝',
+    rx:550, ry:330, rw:80, rh:42,
+    description:'2. kat dersliği.',
+    directions:['2. kata çıkın','210 yanında — Sınıf 215'],
+    info:'Lise' }
 ];
 
-const FLOOR_NAMES = {
-  '-1': 'Bodrum 1. Kat',
-  '0': 'Zemin Kat',
-  '1': '1. Kat',
-  '2': '2. Kat'
-};
-
-const FLOOR_DESCRIPTIONS = {
-  '-1': 'Amfiteatr, Spor Salonu, Yüzme Havuzu, Atölye',
-  '0': 'Ana Giriş, Yönetim, Kantin, Teneffüshane',
-  '1': 'Kütüphane, Öğretmenler Odası, Derslikler',
-  '2': 'Laboratuvarlar, Derslikler'
+const FLOOR_NAMES = { '-1':'Bodrum Kat', '0':'Zemin Kat', '1':'1. Kat', '2':'2. Kat' };
+const FLOOR_DESC = {
+  '-1':'Amfiteatr · Spor Salonu · Yüzme Havuzu · Atölye · Müzik',
+  '0':'Girişler · Yönetim · Yemekhane · Resepsiyon · Teneffüshane',
+  '1':'Kütüphane · Öğretmenler Odası · Derslikler · Dil Sınıfları',
+  '2':'Fen Lab · Kimya Lab · Biyoloji Lab · Bilgisayar Lab · Derslikler'
 };
